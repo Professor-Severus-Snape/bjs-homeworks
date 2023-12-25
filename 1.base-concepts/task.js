@@ -8,22 +8,22 @@
  * @returns {array|string} Массив решений или строку с предупреждением.
  */
 function solveEquation(a, b, c) {
-  let arr = [];
+  const arr = [];
 
-  let discriminant = b ** 2 - 4 * a * c;
+  const discriminant = b ** 2 - 4 * a * c;
 
   if (discriminant === 0) {
     if (a === 0) {
       return "Делить на ноль нельзя!";
     }
-    let result = -b / (2 * a);
+    const result = -b / (2 * a);
     arr.push(result);
   } else if (discriminant > 0) {
     if (a === 0) {
       return "Делить на ноль нельзя!";
     }
-    let result_1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-    let result_2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+    const result_1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+    const result_2 = (-b - Math.sqrt(discriminant)) / (2 * a);
     arr.push(result_1, result_2);
   }
 
@@ -36,12 +36,12 @@ function solveEquation(a, b, c) {
  * @param {number} contribution сумма первоначального взноса
  * @param {number} amount сумма кредита
  * @param {number} countMonths срок кредитования (в месяцах)
- * @returns {number} Общая сумма платежа по ипотеке.
+ * @returns {number} Общую сумму платежа по ипотеке.
  */
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  let loanRate = percent / 100 / 12; // ежемесячная ставка по кредиту
-  let loanBody = amount - contribution; // тело кредита
-  let monthlyFee = loanBody * (loanRate + loanRate / ((1 + loanRate) ** countMonths - 1)); // ежемесячный платеж
-  let totalPayment = +(monthlyFee * countMonths).toFixed(2); // суммарный платеж
+  const loanRate = percent / 100 / 12; // ежемесячная ставка по кредиту
+  const loanBody = amount - contribution; // тело кредита
+  const monthlyFee = loanBody * (loanRate + loanRate / ((1 + loanRate) ** countMonths - 1)); // ежемесячный платеж
+  const totalPayment = +(monthlyFee * countMonths).toFixed(2); // суммарный платеж
   return totalPayment;
 }
