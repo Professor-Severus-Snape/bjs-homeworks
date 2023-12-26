@@ -74,7 +74,7 @@ function averageEvenElementsWorker(...arr) {
 }
 
 function makeWork(matrix, func) {
-  if (!arr.length) {
+  if (!matrix.length) {
     return 0;
   }
 
