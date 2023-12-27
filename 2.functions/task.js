@@ -25,8 +25,7 @@ function summElementsWorker(...arr) {
     return 0;
   }
 
-  const sum = arr.reduce((accumulator, current) => accumulator + current);
-  return sum;
+  return arr.reduce((accumulator, current) => accumulator + current);
 }
 
 function differenceMaxMinWorker(...arr) {
@@ -34,8 +33,7 @@ function differenceMaxMinWorker(...arr) {
     return 0;
   }
 
-  const difference = Math.max(...arr) - Math.min(...arr);
-  return difference;
+  return Math.max(...arr) - Math.min(...arr);
 }
 
 function differenceEvenOddWorker(...arr) {
@@ -67,10 +65,8 @@ function averageEvenElementsWorker(...arr) {
       countEvenElement++;
     }
   }
-
-  const avg = +(sumEvenElement / countEvenElement).toFixed(2);
-
-  return avg;
+  
+  return +(sumEvenElement / countEvenElement).toFixed(2);
 }
 
 function makeWork(matrix, func) {
