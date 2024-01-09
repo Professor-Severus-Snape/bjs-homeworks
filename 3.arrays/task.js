@@ -5,10 +5,14 @@
  * @returns {Boolean} True (если массивы равны) или false (если массивы не равны).
  */
 function compareArrays(arr1, arr2) {
+  // ========== 1-ый вариант решения: ==========
   if (arr1.length === arr2.length) {
     return arr1.every( (item, index) => item === arr2[index] );
   }
   return false;
+
+  // ========== 2-ой вариант решения: ==========
+  // return arr1.length === arr2.length && arr1.every( (item, index) => item === arr2[index] );
 }
 
 /**
@@ -18,16 +22,23 @@ function compareArrays(arr1, arr2) {
  * @returns {Number} Средний возраст пользователей указанной гендерной принадлежности или 0 (если невозможно произвести рассчет).
  */
 function getUsersNamesInAgeRange(users, gender) {
+  // ========== моё решение: ==========
   if (!users.length) {
     return 0;
   }
 
-  const foundUsers = users.filter( (user) => user.gender === gender );  // массив подходящих объектов
+  const foundUsers = users.filter( user => user.gender === gender );  // массив подходящих объектов
   if (!foundUsers.length) {
     return 0;
   }
+  
+  return +(foundUsers.reduce( (accumulator, user) => accumulator + user.age, 0 ) / foundUsers.length).toFixed(2);
 
-  return +(foundUsers.reduce( (accumulator, user) => accumulator + user.age, 0) / foundUsers.length).toFixed(2);
+  // ========== решение эксперта: ==========
+  // return
+  //   users.filter( user => user.gender === gender )
+  //        .map( user => user.age )
+  //        .reduce( (average, userAge, index, array) => average + userAge / array.length, 0 );
 }
 
 const people = [
