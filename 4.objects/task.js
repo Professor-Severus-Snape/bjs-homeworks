@@ -28,14 +28,14 @@ Student.prototype.exclude = function (reason) {
   this.excluded = reason;
 }
 
-let student_1 = new Student("Василиса", "женский", 19);
+const student_1 = new Student("Василиса", "женский", 19);
 student_1.setSubject("Algebra");
 console.log(student_1.getAverage()); // 0
 student_1.addMarks(4, 5, 4, 5);
 console.log(student_1.getAverage()); // 4.5
 console.log(student_1); // { name: 'Василиса', gender: 'женский', age: 19, marks: [ 4, 5, 4, 5 ], subject: 'Algebra'}
 
-let student_2 = new Student("Артём", "мужской", 25);
+const student_2 = new Student("Артём", "мужской", 25);
 student_2.setSubject("Geometry");
 student_2.exclude('плохая учёба')
 console.log(student_2) // {  name: 'Артём', gender: 'мужской', age: 25, excluded: 'плохая учёба'}
