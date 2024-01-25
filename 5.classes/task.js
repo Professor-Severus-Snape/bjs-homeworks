@@ -93,13 +93,22 @@ class Library {
   }
 
   giveBookByName(bookName) {
-    const bookIndex = this.books.findIndex( book => book.name === bookName );
-    if (~bookIndex) {
-      const foundBook = this.books[bookIndex];
-      this.books.splice(bookIndex, 1);
-      return foundBook;
+    // ---------- вариант эксперта: ----------
+    const foundBook = this.findBookBy("name", bookName);
+    if (!foundBook) {
+      return null;
     }
-    return null;
+    this.books = this.books.filter( book => book.name !== bookName );
+    return foundBook;
+
+    // ---------- мой вариант: ----------
+    // const bookIndex = this.books.findIndex( book => book.name === bookName );
+    // if (~bookIndex) {
+    //   const foundBook = this.books[bookIndex];
+    //   this.books.splice(bookIndex, 1);
+    //   return foundBook;
+    // }
+    // return null;
   }
 }
 
